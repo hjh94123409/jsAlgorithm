@@ -1,0 +1,19 @@
+{
+    "folders": [
+		{
+			"path": "../react/react18"
+		},
+		{
+			"path": "../threejs"
+		},
+		{
+			"path": "../正则表达式"
+		},
+		{
+			"path": "."
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "react18"
+    }
+}

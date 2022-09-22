@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //求1-100的和
+        const sum = (n) => {
+            if(n === 1) return 1
+            return sum(n-1) + n
+        }
+
+        console.log(sum(100));
+
+        //求1，3，5，7...奇数的和
+        const sumOdd = (n) => {
+            if(n < 0) return false
+            if(n === 0) return 0
+            if(n % 2 === 0) n--
+            if(n === 1){
+                return 1
+            } else {
+                return sumOdd(n-2) + n
+            }
+        }
+
+        console.log(sumOdd(5));
+
+        //求2，4， 6， 8...偶数的和
+        const sumEven = (n) => {
+            if(n < 0) return false
+            if(n === 0) return 0
+            if(n % 2 === 1) n--
+            if(n === 2){
+                return 2
+            } else {
+                return sumEven(n-2) + n
+            }
+        }
+
+        console.log(sumEven(13));
+
+        // 斐波那契数列的第n项
+        const fib = (n) => {
+            if(n === 0 || n === 1) return 1
+            return fib(n -1) + fib(n-2)
+        }
+
+        console.log(fib(32));
+
+        // 阶乘
+        const factorial = (n) => {
+            if(n === 1) return 1
+            return factorial(n-1) * n
+        }
+
+        console.log(factorial(5));
+
+        //求幂
+        const power = (n, m) => {
+            if(m===0) return 1
+            return power(n, m-1) *n
+        }
+        console.log(power(2,2));
+
+        //字符串反转
+        const str = 'abcdefghijklmnopqrstuvwxyz'
+        const reverseString = (str, len, strOut) => {
+            if(len < 0) return strOut
+            strOut += str.charAt(len--)
+            return reverseString(str, len, strOut)
+        }           
+
+        let result = ''
+        console.log(reverseString(str, str.length - 1, result))
+
+
+    </script>
+</body>
+</html>

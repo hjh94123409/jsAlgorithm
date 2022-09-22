@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const str = 'helloJavascripthellohtmlcssreactvueanglar'
+
+        //方法一
+        const getMax = (str) => {
+            const _obj = {}
+            for (let a of str) {
+                if (a === ' ') a = '#'
+                if (!_obj[a]) {
+                    _obj[a] = 1
+                } else {
+                    _obj[a]++
+                }
+            }
+            let _maxNum = 0
+            let _maxChar = ''
+            for (let key in _obj) {
+                if (_obj[key] > _maxNum) {
+                    _maxChar = key
+                    _maxNum = _obj[key]
+                }
+            }
+            return `出现最多的值是：${_maxChar}，出现的次数为${_maxNum}`
+        }
+        console.log('方法一', getMax(str))
+
+        //方法二
+        const getMax2 = (str) => {
+            const _temp = str.split('').sort().join('')
+            let _maxNum = 0
+            let _maxChar = ''
+            for (let i = 0, j = str.length; i < j; i++) {
+                const char = _temp[i]
+                const maxNum = _temp.lastIndexOf(char) - i + 1
+                // console.log(char, maxNum);
+                if (maxNum > _maxNum) {
+                    _maxNum = maxNum
+                    _maxChar = char
+                }
+                i = _temp.lastIndexOf(char)
+            }
+
+            return `出现最多的值是：${_maxChar}，出现的次数为${_maxNum}`
+        }
+        // getMax2(str)
+        console.log('方法二', getMax2(str));
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = 'helloJavascripthellohtmlcssreactvueanglar'
+
+        //方法一
+        const removeDuplicate = (str) => {
+            const _obj = {}
+            const _arr = []
+            for (const item of str) {
+                if (!_obj[item]) {
+                    _obj[item] = true
+                    _arr.push(item)
+                }
+            }
+            return _arr.join('')
+        }
+        console.log(removeDuplicate(str))
+
+        //方法二
+        const removeDuplicate2 = (str) => {
+            let result = Array.prototype.filter.call(str, (char, index, arr) => {
+                return arr.indexOf(char) === index
+            })
+            return result.join('')
+        }
+        console.log(removeDuplicate2(str));
+
+
+
+    </script>
+</body>
+
+</html>

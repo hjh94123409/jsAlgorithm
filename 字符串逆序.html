@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = 'abcdefghijklmnopqrstuvwxyz'
+        //第一种方法
+        // const reverseString = (str) => {
+        //     const _temp = str.split('').reverse().join('')
+        //     return _temp                 
+        // }
+
+        // console.log(reverseString(str))
+
+        //第二种方法 栈
+        function Stack () {
+            this.data = [] //保存栈内的元素
+            this.top = 0 //记录栈顶的位置
+        }
+
+        Stack.prototype = {
+            push: function (ele) {
+                this.data[this.top++] = ele //入栈，栈顶加入元素 元素个数改变
+            },
+            pop: function () {
+                return this.data[--this.top] //出栈，先返回栈顶的元素 元素个数减一
+            },
+            length: function () {
+                return this.top //返回栈内的元素长度
+            },
+        }
+
+        const reverseString = (str) => {
+            const s = new Stack()
+            let result = ''
+            const arr = str.split('')
+            arr.forEach((item) => {
+                s.push(item)
+            })
+            s.data.forEach((item, index) => {
+                result += s.pop()
+            })
+            return result
+        }
+
+        console.log('结果', reverseString(str));
+
+
+
+    </script>
+</body>
+
+</html>
